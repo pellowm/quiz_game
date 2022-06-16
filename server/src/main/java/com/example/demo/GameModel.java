@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.*;
 
+//prevents circular references (causes infinite recursion)
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
@@ -21,9 +22,12 @@ public class GameModel {
 
     private int score = 0;
 
+    boolean inProgress;
+
     @ManyToOne
     @JoinColumn(name="userId", nullable=false)
-    private UserModel user;
+    @JsonIdentityReference(alwaysAsId = true)
+    private UserModel user; //should this be id (integer)?
 
     @ManyToMany
     private List<CategoryModel> categories = new ArrayList<CategoryModel>();
@@ -89,5 +93,13 @@ public class GameModel {
 
     public void setQuestions(List<QuestionModel> questions) {
         this.questions = questions;
+    }
+
+    public boolean getInProgress() {
+        return inProgress;
+    }
+
+    public void setInProgress(boolean inProgress) {
+        this.inProgress = inProgress;
     }
 }

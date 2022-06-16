@@ -14,6 +14,8 @@ public class UserModel {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
+    private String sub;
+
     private String name;
 
     private String email;
@@ -27,6 +29,14 @@ public class UserModel {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getSub() {
+        return sub;
+    }
+
+    public void setSub(String sub) {
+        this.sub = sub;
     }
 
     public String getName() {

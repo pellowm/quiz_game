@@ -1,7 +1,9 @@
 import React from 'react';
 import qs from 'qs';
+import { Link } from "react-router-dom";
 
 import Question from '../components/QuestionCard';
+import RankCard from '../components/RankCard';
 import ErrorBoundary from './ErrorBoundary';
 
 class Game extends React.Component {
@@ -11,7 +13,9 @@ class Game extends React.Component {
         this.state = {
           questionIndex: 0,
           currentGame: {},
-          guesses: []
+          guesses: [], 
+          showSubmitButton: true,
+          gameInProgress: true
         }
     }
   
@@ -20,7 +24,7 @@ class Game extends React.Component {
         //parse query string
         gameRequest.categories = [qs.parse(window.location.search, { ignoreQueryPrefix: true }).category_id];
 
-      fetch('http://localhost:8080/games',{
+      fetch('http://localhost:8080/api/games',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -34,8 +38,9 @@ class Game extends React.Component {
           return response.json();
       })
       .then(game => {
+        game.score = -1;
         console.log('post game response:', game);
-        this.setState({ currentGame: game});
+        this.setState({ currentGame: game, showNewGameButton: false});
       })
     }
 
@@ -51,7 +56,7 @@ class Game extends React.Component {
         //declare array length ahead of time and write guess to array[index]?
         //fetch
         let guesses = this.state.guesses;
-        fetch(`http://localhost:8080/games/${this.state.currentGame.id}`,{
+        fetch(`http://localhost:8080/api/games/${this.state.currentGame.id}`,{
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,7 +71,7 @@ class Game extends React.Component {
           })
           .then(game => {
             console.log('patch game response:', game);
-            this.setState({ currentGame: game});
+            this.setState({ currentGame: game, showSubmitButton: false, gameInProgress: false});
           })
         //display score and rank
 
@@ -91,18 +96,29 @@ class Game extends React.Component {
         console.log("Question index:", this.state.questionIndex);
 
         return Object.keys(this.state.currentGame).length === 0 ?
-        <h1>No available game</h1> :
+        <h1>Loading...</h1> :
         (
-            <div>
-                <ErrorBoundary>
-                    <Question
-                        {...this.state.currentGame.questions[this.state.questionIndex]}
-                        guess={this.state.guesses[this.state.questionIndex]}
-                        onRadioSelected={this.onRadioSelected} />
-                    {this.state.questionIndex > 0 && <button onClick={this.onClickPrev}>Prev</button>}
-                    {this.state.questionIndex < this.state.currentGame.questions.length-1 && <button onClick={this.onClickNext}>Next</button>}
-                    {this.state.questionIndex === this.state.currentGame.questions.length-1 && <button onClick={this.onClickSubmit}>Submit</button>}
-                </ErrorBoundary>
+            <div className="container mt-4">
+                <div className="row">
+                    <div className="col-md-3 col-sm-0"/>
+                    <div className="col-md-6 col-sm-12 rounded-3 p-3 active-area">
+                        <ErrorBoundary>
+                            <Question
+                                {...this.state.currentGame.questions[this.state.questionIndex]}
+                                guess={this.state.guesses[this.state.questionIndex]}
+                                onRadioSelected={this.onRadioSelected} 
+                                gameInProgress={this.state.gameInProgress} />
+                            <div  className="text-center">
+                            <RankCard {...this.state.currentGame} />
+                                {this.state.gameInProgress === true && this.state.questionIndex > 0 && <button className="btn btn-outline-success mr-3" onClick={this.onClickPrev}>Prev</button>}
+                                {this.state.gameInProgress === true && this.state.questionIndex < this.state.currentGame.questions.length-1 && <button className="btn btn-outline-success" onClick={this.onClickNext}>Next</button>}
+                                {this.state.gameInProgress === true && this.state.questionIndex === this.state.currentGame.questions.length-1 && this.state.showSubmitButton === true && <button onClick={this.onClickSubmit}>Submit</button>}
+                                {this.state.gameInProgress === false && <Link  className="nav-link" to="/"><button type="button">New Game</button></Link>}
+                            </div>
+                        </ErrorBoundary>
+                    </div>
+                    <div className="col-md-3 col-sm-0"/>
+                </div>
             </div>
         );
     }

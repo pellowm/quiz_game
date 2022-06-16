@@ -14,6 +14,8 @@ public class GameRequest {
 
     private Integer userId;
 
+    private Boolean inProgress;
+
     private List<Integer> categories;
 
     private List<QuestionModel> questions;
@@ -70,6 +72,14 @@ public class GameRequest {
 
     public void setQuestions(List<QuestionModel> questions) {
         this.questions = questions;
+    }
+
+    public Boolean getInProgress() {
+        return inProgress;
+    }
+
+    public void setInProgress (Boolean inProgress) {
+        this.inProgress = inProgress;
     }
 
 }

@@ -1,3 +1,16 @@
+Description:
+    Test your knowledge of the cult favorite tv series Gilmore Girls with this trivia game. Each player can choose which categories of questions they want to answer and compare results with those of their friends.
+
+
+Instructions:
+    To compile this code, run 'npm build' in the gg_trivia directory.
+    To run this code:
+    To play the game: go to {{URL}} and log in with these credentials:
+        username: 
+        password: 
+
+Additional Info:
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

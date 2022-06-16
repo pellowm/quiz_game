@@ -14,4 +14,7 @@ public interface UserRepository extends CrudRepository<UserModel, Integer> {
     UserModel findBucky();
 
     UserModel findByName(String name);
+
+    UserModel findBySub(String sub);
+
 }
