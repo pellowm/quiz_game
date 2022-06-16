@@ -23,17 +23,17 @@ const Layout = () => {
                   <Link  className="nav-link" to="/">Home</Link >
               </li>
               <li className="nav-item">
-                  <Link className="nav-link" to="/users/history">History</Link>
+                  <Link className="nav-link" to="/history">History</Link>
               </li>
               <li className="nav-item">
-                  <Link className="nav-link" to="/games/history">Leaderboard</Link>
+                  <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
               </li>
             </ul>
           </div>
           <div className="navbar-nav navbar-right mr auto">
               <ul className="navbar-nav navbar-right mrauto">
                 <li className="nav-item">
-                  <Link  className="nav-link" to="/login">Log In</Link >
+                  <Link  className="nav-link" to="/logout">Log out</Link >
                 </li>
               </ul>
             </div>

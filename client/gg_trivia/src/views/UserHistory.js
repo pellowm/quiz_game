@@ -1,5 +1,4 @@
 import React from 'react';
-import qs from 'qs';
 
 import UserHistoryList from '../components/UserHistoryList';
 import ErrorBoundary from './ErrorBoundary';
@@ -16,7 +15,7 @@ class UserHistory extends React.Component {
     componentDidMount() {
         //parse query string
 
-      fetch('http://localhost:8080/api/users/history',{
+      fetch('/api/users/history',{
         method: 'GET'
       })
       .then(response => {
@@ -34,15 +33,23 @@ class UserHistory extends React.Component {
         //display score and rank
 
     render() {
-
         console.log("userHistory", this.state.userHistory);
 
-        return Object.keys(this.state.userHistory).length === 0 ?
-        <h1>No available history</h1> :
-        (
+        return (
             <div>
-                <ErrorBoundary>
-                    <UserHistoryList games={this.state.userHistory.games}/>
+                 <ErrorBoundary>
+                 <div className="container-fluid m-4 champions text-center">
+                   <div className="row">
+                     <div className="col-md-3 col-sm-12"/> 
+                     <div className="col-md-6 col-sm-12 rounded-3 p-3 active-area">  
+                        <h1 className="">{`Your Game History`}:</h1>
+                          { Object.keys(this.state.userHistory).length === 0 ?
+                          <></> :
+                          <UserHistoryList games={this.state.userHistory.games}/>}
+                      </div>
+                      <div className="col-md-3 col-sm-12"/> 
+                      </div>
+                    </div>
                 </ErrorBoundary>
             </div>
         );

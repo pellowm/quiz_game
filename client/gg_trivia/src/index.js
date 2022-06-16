@@ -21,8 +21,8 @@ root.render(
         <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/game" element={<Game />} />
-        <Route path="/users/history" element={<UserHistory />} />
-        <Route path="/games/history" element={<Leaderboard />} />
+        <Route path="/history" element={<UserHistory />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="*" element={<NoPage />} />
         </Route>
     </Routes>

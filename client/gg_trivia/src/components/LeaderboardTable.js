@@ -2,8 +2,6 @@ import React from 'react';
 import '../index.css'
 
 const LeaderboardTable = (props) => {   
-    let cornstarch = require('../images/cornstarch.png')
-    let poptart = require('../images/poptart.png')
 
     props.games.filter(eachGame => eachGame.inProgress === false);
 
@@ -18,11 +16,7 @@ const LeaderboardTable = (props) => {
     return (
         <div>
             <div class="table-responsive">
-                <div className="text-center">
-                    <img alt="" src={cornstarch} />
-                    <h1 className="d-inline">LEADERBOARD</h1>
-                    <img alt="" src={poptart} />
-                </div>
+               
                 <table class="table">
                     <thead>
                         <tr>

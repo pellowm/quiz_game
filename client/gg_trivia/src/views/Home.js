@@ -1,20 +1,18 @@
 import React from 'react';
+
 import CategoryCardList from '../components/CategoryCardList';
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-
-
 
 class Home extends React.Component {
 
     constructor() {
-        super() /*calls constructor of Component*/
+        super()
         this.state = {
           chooseCategories: [],
         }
     }
   
     componentDidMount() {
-      fetch('http://localhost:8080/api/categories')
+      fetch('/api/categories')
       .then(response => {
           return response.json();
       })
@@ -22,13 +20,9 @@ class Home extends React.Component {
         console.log('categories:', categories);
         this.setState({ chooseCategories: categories});
       })
-      
-        
     }
 
-    /* the function that returns what shows up on the webpage */
     render() {
-        
         return !this.state.chooseCategories.length ?
                   <h1>Loading...</h1> :
                  (
@@ -45,8 +39,6 @@ class Home extends React.Component {
             </div>
         ); 
     }
-
 }
 
-  
 export default Home;

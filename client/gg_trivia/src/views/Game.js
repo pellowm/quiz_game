@@ -9,7 +9,7 @@ import ErrorBoundary from './ErrorBoundary';
 class Game extends React.Component {
 
     constructor() {
-        super() /*calls constructor of Component*/
+        super()
         this.state = {
           questionIndex: 0,
           currentGame: {},
@@ -21,10 +21,9 @@ class Game extends React.Component {
   
     componentDidMount() {
         let gameRequest = {};
-        //parse query string
         gameRequest.categories = [qs.parse(window.location.search, { ignoreQueryPrefix: true }).category_id];
 
-      fetch('http://localhost:8080/api/games',{
+      fetch('/api/games',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -56,7 +55,7 @@ class Game extends React.Component {
         //declare array length ahead of time and write guess to array[index]?
         //fetch
         let guesses = this.state.guesses;
-        fetch(`http://localhost:8080/api/games/${this.state.currentGame.id}`,{
+        fetch(`/api/games/${this.state.currentGame.id}`,{
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -73,8 +72,6 @@ class Game extends React.Component {
             console.log('patch game response:', game);
             this.setState({ currentGame: game, showSubmitButton: false, gameInProgress: false});
           })
-        //display score and rank
-
     }
 
     onClickPrev = () => {
@@ -90,7 +87,6 @@ class Game extends React.Component {
         this.setState({guesses: newGuesses})
     }
 
-    /* the function that returns what shows up on the webpage */
     render() {
         console.log("Current game: ", this.state.currentGame);
         console.log("Question index:", this.state.questionIndex);

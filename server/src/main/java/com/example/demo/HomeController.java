@@ -13,16 +13,16 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 @CrossOrigin(origins = "*")
 public class HomeController {
-    // @RequestMapping(value={"/**" })
-    //public String HomePage() {
-    //return "/index.html";
-    //}
-    @GetMapping("/games/history")
-    public RedirectView redirectWithUsingRedirectView(
-            RedirectAttributes attributes) {
-        attributes.addFlashAttribute("flashAttribute", "redirectWithRedirectView");
-        attributes.addAttribute("attribute", "redirectWithRedirectView");
-        return new RedirectView("/");
+    @RequestMapping(value={"/history", "leaderboard"})
+    public String HomePage() {
+        return "forward:/index.html";
     }
+//    @GetMapping("/games/history")
+//    public RedirectView redirectWithUsingRedirectView(
+//            RedirectAttributes attributes) {
+//        attributes.addFlashAttribute("flashAttribute", "redirectWithRedirectView");
+//        attributes.addAttribute("attribute", "redirectWithRedirectView");
+//        return new RedirectView("/");
+//    }
 }
 
