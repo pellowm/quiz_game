@@ -2,7 +2,7 @@ import React from 'react';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
-class Login extends React.Component {
+class Logout extends React.Component {
 
     constructor() {
         super() /*calls constructor of Component*/
