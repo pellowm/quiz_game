@@ -20,14 +20,7 @@ class Login extends React.Component {
         
         return (
             <div className="container mt-5 rounded-3 text-center">
-              <div className="row">
-                <div className="col-md-3 col-sm-0"/>
-                <div className="col-md-6 col-sm-12 rounded-3 p-3 active-area">
-                  <h1>Welcome to Gilmore Girls Trivia</h1>
-                  <a className="btn btn-success" href="./oauth2/authorization/auth0">Login</a>
-                </div>
-                <div className="col-md-3 col-sm-0"/>
-              </div>
+            You have logged out.
             </div>
         ); 
     }

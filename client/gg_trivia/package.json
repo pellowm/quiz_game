@@ -10,6 +10,7 @@
     "qs": "",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-router-dom": "",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

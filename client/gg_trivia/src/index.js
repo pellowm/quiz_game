@@ -23,6 +23,7 @@ root.render(
         <Route path="/game" element={<Game />} />
         <Route path="/history" element={<UserHistory />} />
         <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NoPage />} />
         </Route>
     </Routes>
