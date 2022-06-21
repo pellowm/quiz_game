@@ -16,7 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.json.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @CrossOrigin(origins = "*")
 @Controller
@@ -52,8 +54,17 @@ public class GameController {
 
             //TODO randomize questions and limit to 10
             //TODO support multiple categories
-            List<QuestionModel> questionList1 = questionRepository.filterQuestionsByCategory(id);
-            n.setQuestions(questionList1);
+            List<QuestionModel> questionList = questionRepository.filterQuestionsByCategory(id);
+
+            final int QUESTION_LIMIT = 5;
+
+            Random rand = new Random();
+            while(questionList.size() > QUESTION_LIMIT) {
+                int index = rand.nextInt(questionList.size());
+                questionList.remove(index);
+            }
+
+            n.setQuestions(questionList);
         }
 
         GameModel retG = gameRepository.save(n);
