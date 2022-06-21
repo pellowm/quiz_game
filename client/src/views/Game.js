@@ -99,13 +99,13 @@ class Game extends React.Component {
                     <div className="col-md-3 col-sm-0"/>
                     <div className="col-md-6 col-sm-12 rounded-3 p-3 active-area">
                         <ErrorBoundary>
-                            {{this.state.gameInProgress === true &&
+                            {this.state.gameInProgress === true &&
                                 <Question
                                     {...this.state.currentGame.questions[this.state.questionIndex]}
                                     guess={this.state.guesses[this.state.questionIndex]}
                                     onRadioSelected={this.onRadioSelected}
                                     gameInProgress={this.state.gameInProgress} />
-                            }}
+                            }
                             <div  className="text-center">
                                 {this.state.gameInProgress === false && <RankCard {...this.state.currentGame} /> }}
                                 {this.state.gameInProgress === true && this.state.questionIndex > 0 && <button className="btn btn-outline-success m-3" onClick={this.onClickPrev}>Prev</button>}
