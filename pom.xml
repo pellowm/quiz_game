@@ -96,7 +96,7 @@
 							<outputDirectory>${basedir}/target/classes/static</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${basedir}/client/gg_trivia/build</directory>
+									<directory>${basedir}/client/build</directory>
 								</resource>
 							</resources>
 						</configuration>
@@ -108,7 +108,7 @@
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>${frontend-maven-plugin.version}</version>
 				<configuration>
-					<workingDirectory>${basedir}/client/gg_trivia</workingDirectory>
+					<workingDirectory>${basedir}/gg_trivia</workingDirectory>
 				</configuration>
 				<executions>
 					<execution>
