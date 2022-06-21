@@ -1,9 +1,9 @@
-package com.gg_trivia;
+package com.gg_trivia.model;
 import java.util.Set;
 
 import javax.persistence.*;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 public class CategoryModel {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

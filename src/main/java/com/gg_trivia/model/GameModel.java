@@ -1,4 +1,4 @@
-package com.gg_trivia;
+package com.gg_trivia.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Date;
 import com.fasterxml.jackson.annotation.*;
 
-//prevents circular references (causes infinite recursion)
+//prevents circular references in JSON
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-@Entity // tells Hibernate to make a table out of this class
+@Entity
 public class GameModel {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

@@ -1,5 +1,8 @@
-package com.gg_trivia;
+package com.gg_trivia.controller;
 
+import com.gg_trivia.model.CategoryModel;
+import com.gg_trivia.repository.CategoryRepository;
+import com.gg_trivia.request.CategoryRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +15,11 @@ public class CategoryController {
     private CategoryRepository categoryRepository;
 
     @PostMapping
-    public @ResponseBody CategoryModel addNewCategories (@RequestBody CategoryRequest newCategory) {
+    public @ResponseBody
+    CategoryModel addNewCategories (@RequestBody CategoryRequest newCategory) {
 
         CategoryModel n = new CategoryModel();
         n.setCategory(newCategory.getCategory());
-
         CategoryModel retCat = categoryRepository.save(n);
         return retCat;
     }
@@ -39,5 +42,4 @@ public class CategoryController {
         categoryRepository.deleteAll();
         return "all categories successfully deleted";
     }
-
 }

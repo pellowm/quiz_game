@@ -1,4 +1,4 @@
-package com.gg_trivia;
+package com.gg_trivia.request;
 
 public class UserRequest {
 

@@ -1,14 +1,15 @@
-package com.gg_trivia;
+package com.gg_trivia.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.*;
 
+// prevents circular references in JSON
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 public class UserModel {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

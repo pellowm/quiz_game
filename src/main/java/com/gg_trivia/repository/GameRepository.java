@@ -1,5 +1,6 @@
-package com.gg_trivia;
+package com.gg_trivia.repository;
 
+import com.gg_trivia.model.GameModel;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

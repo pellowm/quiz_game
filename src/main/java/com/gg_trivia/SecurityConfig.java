@@ -1,5 +1,7 @@
 package com.gg_trivia;
 
+import com.gg_trivia.controller.LogoutController;
+import com.gg_trivia.controller.UserNameFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,12 +15,12 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    UserFilter userFilter;
+    UserNameFilter userNameFilter;
 
-    private final LogoutHandler logoutHandler;
+    private final LogoutController logoutController;
 
-    public SecurityConfig(LogoutHandler logoutHandler) {
-        this.logoutHandler = logoutHandler;
+    public SecurityConfig(LogoutController logoutController) {
+        this.logoutController = logoutController;
     }
 
     @Override
@@ -33,10 +35,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.and().oauth2ResourceServer().jwt(); //development
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .addLogoutHandler(logoutHandler);
+                .addLogoutHandler(logoutController);
 
         http.addFilterAfter(
-                userFilter, BasicAuthenticationFilter.class);
+                userNameFilter, BasicAuthenticationFilter.class);
     }
 }
 

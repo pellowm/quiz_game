@@ -1,4 +1,4 @@
-package com.gg_trivia;
+package com.gg_trivia.model;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 public class QuestionModel {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

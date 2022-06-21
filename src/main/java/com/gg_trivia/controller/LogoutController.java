@@ -1,4 +1,4 @@
-package com.gg_trivia;
+package com.gg_trivia.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.io.IOException;
  * This controller will also log users out of Auth0 by calling the Auth0 logout endpoint.
  */
 @Controller
-public class LogoutHandler extends SecurityContextLogoutHandler {
+public class LogoutController extends SecurityContextLogoutHandler {
 
     private final ClientRegistrationRepository clientRegistrationRepository;
 
@@ -30,7 +30,7 @@ public class LogoutHandler extends SecurityContextLogoutHandler {
      * @param clientRegistrationRepository the {@code ClientRegistrationRepository} for this application.
      */
     @Autowired
-    public LogoutHandler(ClientRegistrationRepository clientRegistrationRepository) {
+    public LogoutController(ClientRegistrationRepository clientRegistrationRepository) {
         this.clientRegistrationRepository = clientRegistrationRepository;
     }
 

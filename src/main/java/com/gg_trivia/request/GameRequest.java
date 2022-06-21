@@ -1,4 +1,6 @@
-package com.gg_trivia;
+package com.gg_trivia.request;
+
+import com.gg_trivia.model.QuestionModel;
 
 import java.util.List;
 import java.util.Date;

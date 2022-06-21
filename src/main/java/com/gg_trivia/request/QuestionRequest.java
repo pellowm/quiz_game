@@ -1,4 +1,4 @@
-package com.gg_trivia;
+package com.gg_trivia.request;
 
 import java.util.ArrayList;
 import java.util.List;

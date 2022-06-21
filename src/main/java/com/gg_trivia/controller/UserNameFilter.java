@@ -1,5 +1,7 @@
-package com.gg_trivia;
+package com.gg_trivia.controller;
 
+import com.gg_trivia.model.UserModel;
+import com.gg_trivia.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,7 +18,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @Component
-public class UserFilter extends GenericFilterBean {
+public class UserNameFilter extends GenericFilterBean {
 
     @Autowired
     private UserRepository userRepository;
