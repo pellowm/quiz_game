@@ -52,7 +52,6 @@ public class GameController {
             CategoryModel c = categoryRepository.findById(id).orElseThrow(() -> new RuntimeException("Can't find category"));;
             n.setCategories(c);
 
-            //TODO randomize questions and limit to 10
             //TODO support multiple categories
             List<QuestionModel> questionList = questionRepository.filterQuestionsByCategory(id);
 
