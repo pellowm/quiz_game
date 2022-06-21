@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 //import ChampionHistory from "./views/championHistory";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './views/Home';
-import Login from './views/Logout';
+import Logout from './views/Logout';
 import Game from './views/Game';
 import Layout from "./views/Layout";
 import NoPage from "./views/NoPage";
