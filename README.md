@@ -1,3 +1,7 @@
-# My program
+# Gilmore Girls Trivia
 
-to build (in gui - may need to change this later): find maven toolbar - demo - lifecycle - install. right click - run maven build.
+## Descriptions
+
+## Installation
+
+to build front end, in IntelliJ - find maven toolbar - demo - lifecycle - install. right click - run maven build.

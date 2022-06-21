@@ -5,7 +5,6 @@ const LeaderboardTable = (props) => {
 
     props.games.filter(eachGame => eachGame.inProgress === false);
 
-    
     //map for converting user IDs to names
     const userNames = {};
     for (let user of props.users)

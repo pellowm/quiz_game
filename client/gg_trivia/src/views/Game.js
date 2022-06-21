@@ -106,10 +106,10 @@ class Game extends React.Component {
                                 gameInProgress={this.state.gameInProgress} />
                             <div  className="text-center">
                             <RankCard {...this.state.currentGame} />
-                                {this.state.gameInProgress === true && this.state.questionIndex > 0 && <button className="btn btn-outline-success mr-3" onClick={this.onClickPrev}>Prev</button>}
+                                {this.state.gameInProgress === true && this.state.questionIndex > 0 && <button className="btn btn-outline-success m-3" onClick={this.onClickPrev}>Prev</button>}
                                 {this.state.gameInProgress === true && this.state.questionIndex < this.state.currentGame.questions.length-1 && <button className="btn btn-outline-success" onClick={this.onClickNext}>Next</button>}
                                 {this.state.gameInProgress === true && this.state.questionIndex === this.state.currentGame.questions.length-1 && this.state.showSubmitButton === true && <button onClick={this.onClickSubmit}>Submit</button>}
-                                {this.state.gameInProgress === false && <Link  className="nav-link" to="/"><button type="button">New Game</button></Link>}
+                                {this.state.gameInProgress === false && <Link  className="nav-link" to="/"><button className="btn btn-outline-success" type="button">New Game</button></Link>}
                             </div>
                         </ErrorBoundary>
                     </div>
