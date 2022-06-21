@@ -4,9 +4,9 @@ const RankCard = (props) => {
     if (props.score !== -1)
     {
         let rank;
-        if (props.score <= 30){rank = 1};
-        if (props.score >= 40 && props.score <= 60){rank = 2}; 
-        if (props.score >= 70 && props.score <= 90){rank = 3}; 
+        if (props.score < 33){rank = 1};
+        if (props.score >= 33 && props.score < 66){rank = 2};
+        if (props.score >= 66 && props.score < 100){rank = 3};
         if (props.score === 100){rank = 4}; 
         return (
             <div className="col-md-12 col-sm-12">
