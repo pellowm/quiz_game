@@ -33,7 +33,7 @@ const Layout = () => {
           <div className="navbar-nav navbar-right mr auto">
               <ul className="navbar-nav navbar-right mrauto">
                 <li className="nav-item">
-                  <Link  className="nav-link" to="/logout">Log out</Link >
+                  <a className="nav-link" href="/logout">Log out</a>
                 </li>
               </ul>
             </div>
