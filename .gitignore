@@ -27,6 +27,7 @@ activemq-data
 bin
 build
 client/build
+client/node
 !/**/src/**/bin
 !/**/src/**/build
 build.log
