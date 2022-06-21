@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>gg-trivia</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>gg-trivia</name>
+	<description>Gilmore Girls Trivia</description>
 	<properties>
 		<java.version>18</java.version>
 		<frontend-maven-plugin.version>1.6</frontend-maven-plugin.version>
@@ -77,8 +77,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>18</source>
+                    <target>18</target>
                 </configuration>
             </plugin>
 			<plugin>
